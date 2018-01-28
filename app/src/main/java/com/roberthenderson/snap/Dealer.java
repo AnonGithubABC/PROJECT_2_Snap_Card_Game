@@ -15,10 +15,12 @@ class Dealer {
         deck.randomOrder();
     }
 
-    public void dealMultipleCards(Deck deck, Player player, int numberOfCards) {
-        for (int cardsDealt = 0; cardsDealt < numberOfCards; cardsDealt +=1){
+    public void dealAllCards(Deck deck, Player player1, Player player2) {
+        for (int cardsDealt = 0; cardsDealt < 26; cardsDealt +=1){
             Card card = deck.removeCard();
-            player.takeCard(card);
+            player1.takeCard(card);
+            player2.takeCard(card);
+
         }
 
     }

@@ -13,6 +13,7 @@ public class DealerTest {
     Player player2;
     Deck deck;
 
+
     @Before
     public void before(){
         dealer = new Dealer();
@@ -31,12 +32,14 @@ public class DealerTest {
         System.out.println(deck.findSpecificCard(0).getRank());
     }
 
+
     @Test
-    public void canDealMultipleCards(){
-        dealer.dealMultipleCards(deck, player1, 2);
-        assertEquals(2, player1.getNumberOfCards());
-        assertEquals(50, deck.getSize());
+    public void canDealCardsEvenly(){
+        dealer.dealAllCards(deck, player1, player2);
+        assertEquals(26, player1.getNumberOfCards());
+        assertEquals(26, player2.getNumberOfCards());
 
     }
+
 
 }

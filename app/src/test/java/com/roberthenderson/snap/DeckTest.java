@@ -35,5 +35,11 @@ public class DeckTest {
         assertEquals(Rank.KING, card.getRank());
     }
 
+    @Test
+    public void canRemoveCardsFromDeck(){
+        deck.removeCard();
+        assertEquals(51, deck.getSize());
+    }
+
 
 }

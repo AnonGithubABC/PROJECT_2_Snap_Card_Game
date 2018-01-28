@@ -26,6 +26,8 @@ public class Deck {
     }
 
 
+
+
     public int getSize() {
         return this.cards.size();
     }
@@ -43,4 +45,5 @@ public class Deck {
         return this.cards.remove(0);
 
     }
+
 }
