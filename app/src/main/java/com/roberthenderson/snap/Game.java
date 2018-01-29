@@ -15,7 +15,7 @@ public class Game {
     Card card1;
 
     public Game(ArrayList<Player> players, Deck deck, Dealer dealer) {
-        table = new ArrayList<>();
+        this.table = new ArrayList<>();
         this.players = players;
         this.deck = deck;
         this.dealer = dealer;
@@ -40,5 +40,19 @@ public class Game {
         if (card != null) tableAcceptsCard(card);
     }
 
+    public String alertPlayersWhenRanksMatch(){
+        int lastIndex = this.table.size() -1;
+        int secondLastIndex = this.table.size() - 2;
+        if (this.table.get(lastIndex).getRank() == this.table.get(secondLastIndex).getRank()){
+            return "RANKS MATCH, WHO WILL SNAP FIRST?";
+        }
+        return null;
+    }
 
+
+    public int callSnap(Player player) {
+        
+
+
+    }
 }

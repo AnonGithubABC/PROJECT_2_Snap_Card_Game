@@ -9,9 +9,13 @@ public class Deck {
     ArrayList<Card> cards;
 
     public Deck(){
-        cards = new ArrayList<>();
+        this.cards = new ArrayList<>();
         createDeck();
         shuffleDeck();
+    }
+
+    public Deck(ArrayList<Card> cards){
+        this.cards = cards;
     }
 
     private void createDeck() {
