@@ -1,8 +1,5 @@
 package com.roberthenderson.snap;
 
-/**
- * Created by user on 26/01/2018.
- */
 
 class Dealer {
 
