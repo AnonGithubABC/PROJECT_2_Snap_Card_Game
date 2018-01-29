@@ -3,6 +3,8 @@ package com.roberthenderson.snap;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static junit.framework.Assert.assertEquals;
 
 public class DealerTest {
@@ -12,6 +14,7 @@ public class DealerTest {
     Player player1;
     Player player2;
     Deck deck;
+    ArrayList<Player> players;
 
 
     @Before
@@ -20,7 +23,9 @@ public class DealerTest {
         player1 = new Player();
         player2 = new Player();
         deck = new Deck();
-        dealer.shuffleDeck(deck);
+        players = new ArrayList<>();
+        players.add(player1);
+        players.add(player2);
     }
 
     @Test
@@ -35,7 +40,7 @@ public class DealerTest {
 
     @Test
     public void canDealCardsEvenly(){
-        dealer.dealAllCards(deck, player1, player2);
+        dealer.dealAllCards(deck, players);
         assertEquals(26, player1.getNumberOfCards());
         assertEquals(26, player2.getNumberOfCards());
 

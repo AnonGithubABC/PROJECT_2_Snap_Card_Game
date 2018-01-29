@@ -1,6 +1,7 @@
 package com.roberthenderson.snap;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 public class Deck {
@@ -10,6 +11,7 @@ public class Deck {
     public Deck(){
         cards = new ArrayList<>();
         createDeck();
+        shuffleDeck();
     }
 
     private void createDeck() {
@@ -34,8 +36,7 @@ public class Deck {
         return cards.get(index);
     }
 
-
-    public void randomOrder() {
+    public void shuffleDeck() {
         Collections.shuffle(this.cards);
     }
 

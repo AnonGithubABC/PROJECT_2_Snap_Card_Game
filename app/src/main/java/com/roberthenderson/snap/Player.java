@@ -14,10 +14,16 @@ public class Player {
 
     public int getNumberOfCards() {
         return hand.size();
+
     }
 
     public void takeCard(Card card) {
         hand.add(card);
+    }
+
+    public Card removeCard(){
+        if (getNumberOfCards() >= 1) return hand.remove(0);
+        return null;
     }
 
     public int getHandValue() {

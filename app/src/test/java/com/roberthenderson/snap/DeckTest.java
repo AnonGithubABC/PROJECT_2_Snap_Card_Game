@@ -28,12 +28,12 @@ public class DeckTest {
         assertEquals(52, deck.getSize());
     }
 
-    @Test
-    public void lastCardInDeckIsKingOfDiamonds() {
-        Card card = deck.findSpecificCard(51);
-        assertEquals(Suit.DIAMONDS, card.getSuit());
-        assertEquals(Rank.KING, card.getRank());
-    }
+//    @Test
+//    public void lastCardInDeckIsKingOfDiamonds() {
+//        Card card = deck.findSpecificCard(51);
+//        assertEquals(Suit.DIAMONDS, card.getSuit());
+//        assertEquals(Rank.KING, card.getRank());
+//    }
 
     @Test
     public void canRemoveCardsFromDeck(){

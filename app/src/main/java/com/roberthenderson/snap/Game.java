@@ -9,42 +9,36 @@ import java.util.ArrayList;
 public class Game {
 
     private ArrayList<Card> table;
-    Player player1;
-    Player player2;
+    ArrayList<Player> players;
     Deck deck;
     Dealer dealer;
+    Card card1;
 
-    public Game(Player player1, Player player2, Deck deck, Dealer dealer) {
+    public Game(ArrayList<Player> players, Deck deck, Dealer dealer) {
         table = new ArrayList<>();
-        this.player1 = player1;
-        this.player2 = player2;
+        this.players = players;
         this.deck = deck;
         this.dealer = dealer;
+        this.card1 = card1;
 
     }
 
     public void gameStart(){
-    dealer.dealAllCards(deck, player1, player2);
+    dealer.dealAllCards(deck, players);
     }
 
     public ArrayList<Card> getTable() {
         return table;
     }
 
-    public int getNumberOfCardsInTable(){
-        return table.size();
-    }
-
     public void tableAcceptsCard(Card card) {
         table.add(card);
     }
 
-    public void player1Plays(){
-
+    public void playerPlays(Player player){
+        Card card = player.removeCard();
+        if (card != null) tableAcceptsCard(card);
     }
 
-    public void player2Plays(){
-
-    }
 
 }
