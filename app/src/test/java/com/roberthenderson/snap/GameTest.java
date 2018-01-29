@@ -67,6 +67,13 @@ public class GameTest {
     }
 
     @Test
+    public void canRemoveCardsFromTable(){
+        game.tableAcceptsCard(card1);
+        game.removeCardFromTable(card1);
+        assertEquals(0, game.getTable().size());
+    }
+
+    @Test
     public void cardLeavesPlayerHandAndGoesOntoTable(){
         game.gameStart();
         game.playerPlays(player1);
@@ -117,7 +124,7 @@ public class GameTest {
         riggedgame.gameStart();
         riggedgame.playerPlays(player1);
         riggedgame.playerPlays(player2);
-        assertEquals("RANKS MATCH, WHO WILL SNAP FIRST?", riggedgame.alertPlayersWhenRanksMatch());
+        assertEquals("RANKS MATCH, WHO WILL SNAP FIRST?", riggedgame.checksWhenRanksMatch());
     }
 
     @Test
@@ -125,6 +132,7 @@ public class GameTest {
         riggedgame.gameStart();
         riggedgame.playerPlays(player1);
         riggedgame.playerPlays(player2);
-        assertEquals(2, riggedgame.callSnap(player1));
+        game.callSnap(player1);
+        assertEquals(2, player1.getNumberOfCards());
     }
 }

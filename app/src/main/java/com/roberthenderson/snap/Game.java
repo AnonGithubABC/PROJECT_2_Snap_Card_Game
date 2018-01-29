@@ -23,8 +23,8 @@ public class Game {
 
     }
 
-    public void gameStart(){
-    dealer.dealAllCards(deck, players);
+    public void gameStart() {
+        dealer.dealAllCards(deck, players);
     }
 
     public ArrayList<Card> getTable() {
@@ -35,24 +35,37 @@ public class Game {
         table.add(card);
     }
 
-    public void playerPlays(Player player){
+
+    public void removeCardFromTable(Card card) {
+        this.table.remove(card);
+    }
+
+
+    public void playerPlays(Player player) {
         Card card = player.removeCard();
         if (card != null) tableAcceptsCard(card);
     }
 
-    public String alertPlayersWhenRanksMatch(){
-        int lastIndex = this.table.size() -1;
+
+    public Boolean checksWhenRanksMatch() {
+        int lastIndex = this.table.size() - 1;
         int secondLastIndex = this.table.size() - 2;
-        if (this.table.get(lastIndex).getRank() == this.table.get(secondLastIndex).getRank()){
-            return "RANKS MATCH, WHO WILL SNAP FIRST?";
+        if (this.table.get(lastIndex).getRank() == this.table.get(secondLastIndex).getRank()) {
+            return true;
         }
-        return null;
+        return false;
     }
 
 
-//    public int callSnap(Player player) {
-//
-//
-//
-//    }
+    public void callSnap(Player player) {
+        while (checksWhenRanksMatch() == true && this.table.size() > 0) {
+                Card card = this.table.remove(card);
+            if (card != null) player.takeCard(card);
+            }
+
+
+        }
+
+    }
+
 }
