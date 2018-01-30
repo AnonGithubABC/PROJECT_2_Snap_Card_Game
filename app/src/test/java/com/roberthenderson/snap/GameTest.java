@@ -127,12 +127,16 @@ public class GameTest {
         assertEquals("RANKS MATCH, WHO WILL SNAP FIRST?", riggedgame.checksWhenRanksMatch());
     }
 
+
+
     @Test
     public void playerCanWinRoundAndTakeCardsFromTable(){
         riggedgame.gameStart();
         riggedgame.playerPlays(player1);
         riggedgame.playerPlays(player2);
-        game.callSnap(player1);
+        riggedgame.callSnap(player1);
         assertEquals(2, player1.getNumberOfCards());
+        assertEquals(0, player2.getNumberOfCards());
+        assertEquals(0, riggedgame.getTable().size());
     }
 }

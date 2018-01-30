@@ -56,15 +56,20 @@ public class Game {
         return false;
     }
 
+    public String gameIsADraw(Player player1, Player player2){
+        if (player1.getNumberOfCards() < 1 && player2.getNumberOfCards() < 1) {
+            return "Game is a draw";
+        }
+        return null;
+    }
+
 
     public void callSnap(Player player) {
-        while (checksWhenRanksMatch() == true && this.table.size() > 0) {
-                Card card = this.table.remove(card);
-            if (card != null) player.takeCard(card);
-            }
-
-
+        if (checksWhenRanksMatch()){
+            player.winCards(this.table);
+            this.table.clear();
         }
+    }
 
 
 }

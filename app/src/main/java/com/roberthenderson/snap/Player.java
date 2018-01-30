@@ -2,6 +2,8 @@ package com.roberthenderson.snap;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Player {
 
@@ -33,5 +35,10 @@ public class Player {
             totalHandValue += valueOfCard;
         }
         return totalHandValue;
+    }
+
+    public void winCards(ArrayList<Card> cards) {
+        this.hand.addAll(cards);
+        Collections.shuffle(this.hand);
     }
 }

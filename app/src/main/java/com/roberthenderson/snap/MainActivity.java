@@ -13,7 +13,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-    private Button button;
+    private Button playButton;
+    private Button rulesButton;
 
 
     @Override
@@ -21,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.rules);
-        button = (Button) findViewById(R.id.play);
+        rulesButton = (Button) findViewById(R.id.rules);
+        playButton = (Button) findViewById(R.id.play);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        rulesButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        button.setOnClickListener(new View.OnClickListener() {
+        playButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
