@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = (Button) findViewById(R.id.rules);
+        button = (Button) findViewById(R.id.play);
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -29,8 +30,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Rules.class);
                 startActivity(intent); // startActivity allow you to move
-            }
-        });
+                    }
+                });
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Play.class);
+                startActivity(intent); // startActivity allow you to move
+                    }
+                });
     }
 
 }
