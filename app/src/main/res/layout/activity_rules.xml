@@ -9,17 +9,23 @@
     <EditText
         android:id="@+id/editText2"
         android:layout_width="380dp"
-        android:layout_height="479dp"
+        android:layout_height="376dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="16dp"
+        android:autoText="false"
+        android:contextClickable="false"
+        android:elegantTextHeight="false"
         android:ems="10"
-        android:inputType="textMultiLine"
+        android:freezesText="false"
+        android:inputType="textMultiLine|textImeMultiLine"
         android:text="RULES \n Snap! Is the classic card game where each player gets 26 card \n one card at a time till the time the pair matches for example two \n 'Aces' two 2's.  As soon as two cards match both players has the opportinity \n to click on their respective side to snap the cards and whoever is successful in \n tapping first gets the cards on the deck. \n  The game continues until one player finishes all of their cards and may also end \n in draw if both players finish their cards."
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.489" />
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
