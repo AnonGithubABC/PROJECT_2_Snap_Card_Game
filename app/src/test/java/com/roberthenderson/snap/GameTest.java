@@ -139,4 +139,32 @@ public class GameTest {
         assertEquals(0, player2.getNumberOfCards());
         assertEquals(0, riggedgame.getTable().size());
     }
+
+    @Test
+    public void checkGameDetectsDraw(){
+        Card twoHearts = new Card(Suit.HEARTS, Rank.TWO);
+        Card threeHearts = new Card(Suit.HEARTS, Rank.THREE);
+        ArrayList<Card> noMatchCards = new ArrayList<>();
+        noMatchCards.add(twoHearts);
+        noMatchCards.add(threeHearts);
+        Deck drawnDeck = new Deck(noMatchCards);
+        Game drawnGame = new Game(players, drawnDeck, dealer);
+        drawnGame.gameStart();
+        drawnGame.playerPlays(player1);
+        drawnGame.playerPlays(player2);
+        assertEquals("Game is a draw", game.gameIsADraw(player1, player2));
+    }
+
+    @Test
+    public void checkPlayer1WinsWhenPlayer2HasNoCardsAndLastCardsPlayedDontMatchRanks(){
+        riggedgame.gameStart();
+        riggedgame.playerPlays(player1);
+        riggedgame.playerPlays(player2);
+        riggedgame.callSnap(player1);
+        assertEquals(player1, riggedgame.checkWinner());
+        System.out.println(player1.getNumberOfCards());
+        System.out.println(player2.getNumberOfCards());
+        System.out.println(riggedgame.getTable().size());
+    }
+
 }

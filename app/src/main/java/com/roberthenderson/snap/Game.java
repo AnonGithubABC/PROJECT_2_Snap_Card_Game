@@ -13,6 +13,7 @@ public class Game {
     Deck deck;
     Dealer dealer;
     Card card1;
+    int cardsToBeWon;
 
     public Game(ArrayList<Player> players, Deck deck, Dealer dealer) {
         this.table = new ArrayList<>();
@@ -20,6 +21,7 @@ public class Game {
         this.deck = deck;
         this.dealer = dealer;
         this.card1 = card1;
+        this.cardsToBeWon = deck.getSize();
 
     }
 
@@ -56,7 +58,14 @@ public class Game {
         return false;
     }
 
-    public String gameIsADraw(Player player1, Player player2){
+    public void callSnap(Player player) {
+        if (checksWhenRanksMatch()) {
+            player.winCards(this.table);
+            this.table.clear();
+        }
+    }
+
+    public String gameIsADraw(Player player1, Player player2) {
         if (player1.getNumberOfCards() < 1 && player2.getNumberOfCards() < 1) {
             return "Game is a draw";
         }
@@ -64,14 +73,25 @@ public class Game {
     }
 
 
-    public void callSnap(Player player) {
-        if (checksWhenRanksMatch()){
-            player.winCards(this.table);
-            this.table.clear();
+    public String playerWins(Player player1, Player player2) {
+        if (player1.getNumberOfCards() == 52 && player2.getNumberOfCards() == 0 && this.table.size() == 0) {
+            return "Player 1 wins";
         }
+        if (player2.getNumberOfCards() == 52 && player1.getNumberOfCards() == 0 && this.table.size() == 0) {
+            return "Player 2 wins";
+        }
+        return null;
     }
 
-
+    public Player checkWinner(){
+        Player winner = null;
+        for (Player player : players){
+            if (player.getNumberOfCards() == cardsToBeWon){
+                winner = player;
+            }
+        }
+        return winner;
+    }
 }
 
 
