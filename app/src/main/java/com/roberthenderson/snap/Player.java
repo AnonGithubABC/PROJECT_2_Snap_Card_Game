@@ -28,15 +28,6 @@ public class Player {
         return null;
     }
 
-    public int getHandValue() {
-        int totalHandValue = 0;
-        for(Card card: this.hand){
-            int valueOfCard = card.getRank().getValue();
-            totalHandValue += valueOfCard;
-        }
-        return totalHandValue;
-    }
-
     public void winCards(ArrayList<Card> cards) {
         this.hand.addAll(cards);
         Collections.shuffle(this.hand);

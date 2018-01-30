@@ -73,16 +73,6 @@ public class Game {
     }
 
 
-    public String playerWins(Player player1, Player player2) {
-        if (player1.getNumberOfCards() == 52 && player2.getNumberOfCards() == 0 && this.table.size() == 0) {
-            return "Player 1 wins";
-        }
-        if (player2.getNumberOfCards() == 52 && player1.getNumberOfCards() == 0 && this.table.size() == 0) {
-            return "Player 2 wins";
-        }
-        return null;
-    }
-
     public Player checkWinner(){
         Player winner = null;
         for (Player player : players){

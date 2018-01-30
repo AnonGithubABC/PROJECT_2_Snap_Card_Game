@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 /**
  * Created by user on 28/01/2018.
@@ -124,7 +125,7 @@ public class GameTest {
         riggedgame.gameStart();
         riggedgame.playerPlays(player1);
         riggedgame.playerPlays(player2);
-        assertEquals("RANKS MATCH, WHO WILL SNAP FIRST?", riggedgame.checksWhenRanksMatch());
+        assertTrue(riggedgame.checksWhenRanksMatch());
     }
 
 
