@@ -25,25 +25,23 @@ public class MainActivity extends AppCompatActivity {
         rulesButton = (Button) findViewById(R.id.rules);
         playButton = (Button) findViewById(R.id.play);
 
-        rulesButton.setOnClickListener(new View.OnClickListener() {
+            rulesButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Rules.class);
-                startActivity(intent); // startActivity allow you to move
-                    }
-                });
+        @Override
+        public void onRulesButtonClick(View rulesButton) {
+            Intent intent = new Intent(MainActivity.this, Rules.class);
+            startActivity(intent); // startActivity allow you to move
+                }
+            });
 
-        playButton.setOnClickListener(new View.OnClickListener() {
+            playButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Play.class);
-                startActivity(intent); // startActivity allow you to move
-                    }
-                });
+        @Override
+        public void onPlayButtonClick(View playButton) {
+            Intent intent = new Intent(MainActivity.this, Play.class);
+            startActivity(intent); // startActivity allow you to move
+                }
+            });
     }
 
 }
-
-
