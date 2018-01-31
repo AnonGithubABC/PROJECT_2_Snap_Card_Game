@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
 /**
@@ -126,6 +127,20 @@ public class GameTest {
         riggedgame.playerPlays(player1);
         riggedgame.playerPlays(player2);
         assertTrue(riggedgame.checksWhenRanksMatch());
+    }
+
+    @Test
+    public void matchFalseWhenLessThanTwoCards_OneCardDown(){
+        riggedgame.gameStart();
+        riggedgame.playerPlays(player1);
+        assertFalse(riggedgame.checksWhenRanksMatch());
+    }
+
+
+    @Test
+    public void matchFalseWhenLessThanTwoCards_NoCardsDown(){
+        riggedgame.gameStart();
+        assertFalse(riggedgame.checksWhenRanksMatch());
     }
 
 

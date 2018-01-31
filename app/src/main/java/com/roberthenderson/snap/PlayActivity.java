@@ -15,6 +15,7 @@ public class PlayActivity extends AppCompatActivity {
     Button player2Button;
     TextView textView1;
     TextView textView2;
+    TextView textViewWinner;
     Button player1SnapButton;
     Button player2SnapButton;
     Player player1;
@@ -33,6 +34,7 @@ public class PlayActivity extends AppCompatActivity {
         player2Button = findViewById(R.id.player2Button);
         textView1 = findViewById(R.id.player1TextView);
         textView2 = findViewById(R.id.player2TextView);
+        textViewWinner = findViewById(R.id.playerWins);
         player1SnapButton = findViewById(R.id.player1SnapButton);
         player2SnapButton = findViewById(R.id.player2SnapButton);
         player1 = new Player();
@@ -57,9 +59,7 @@ public class PlayActivity extends AppCompatActivity {
             game.playerPlays(player1);
             Card cardPlayed = game.lastCardPlayedOnTable();
             textView1.setText(cardPlayed.cardName());
-
-
-            }
+        }
         });
 
 
@@ -70,10 +70,7 @@ public class PlayActivity extends AppCompatActivity {
             game.playerPlays(player2);
             Card cardPlayed = game.lastCardPlayedOnTable();
             textView2.setText(cardPlayed.cardName());
-//            game.checksWhenRanksMatch();
-//            game.checkWinner();
         }
-
         });
 
     player1SnapButton.setOnClickListener(new View.OnClickListener() {
@@ -83,20 +80,24 @@ public class PlayActivity extends AppCompatActivity {
             game.callSnap(player1);
             game.checksWhenRanksMatch();
             game.checkWinner();
+            String winningPlayer = game.checkWinner().toString();
+            textViewWinner.setText(winningPlayer);
 
         }
-    });
+        });
 
     player2SnapButton.setOnClickListener(new View.OnClickListener() {
 
         @Override
-        public void onClick(View player1SnapButton) {
+        public void onClick(View player2SnapButton) {
             game.callSnap(player2);
             game.checksWhenRanksMatch();
             game.checkWinner();
+            String winningPlayer = game.checkWinner().toString();
+            textViewWinner.setText(winningPlayer);
 
         }
-    });
+        });
 
     }
 

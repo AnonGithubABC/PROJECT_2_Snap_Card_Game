@@ -51,6 +51,8 @@ public class Game {
 
 
     public Boolean checksWhenRanksMatch() {
+        if (this.table.size() < 2)
+            return false;
         int lastIndex = this.table.size() - 1;
         int secondLastIndex = this.table.size() - 2;
         if (this.table.get(lastIndex).getRank() == this.table.get(secondLastIndex).getRank()) {
