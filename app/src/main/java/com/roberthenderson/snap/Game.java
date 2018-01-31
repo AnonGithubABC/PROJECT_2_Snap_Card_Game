@@ -1,6 +1,8 @@
 package com.roberthenderson.snap;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by user on 28/01/2018.
@@ -14,6 +16,7 @@ public class Game {
     Dealer dealer;
     Card card1;
     int cardsToBeWon;
+    Player activePlayer;
 
     public Game(ArrayList<Player> players, Deck deck, Dealer dealer) {
         this.table = new ArrayList<>();
@@ -22,7 +25,16 @@ public class Game {
         this.dealer = dealer;
         this.card1 = card1;
         this.cardsToBeWon = deck.getSize();
+    }
 
+    // TODO: 31/01/2018 Set up game to have an active player - switch players in array to change them
+
+    public Player getActivePlayer(){
+        return this.players.get(0);
+    }
+
+    public void swapActivePlayer(){
+        Collections.swap(this.players, 0,  1);
     }
 
     public void gameStart() {
@@ -46,6 +58,8 @@ public class Game {
     public Card playerPlays(Player player) {
         Card card = player.removeCard();
         if (card != null) tableAcceptsCard(card);
+        swapActivePlayer();
+        // TODO: 31/01/2018 switch active players here
         return card;
     }
 

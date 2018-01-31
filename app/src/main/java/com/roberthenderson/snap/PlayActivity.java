@@ -56,9 +56,12 @@ public class PlayActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View player1Button) {
-            game.playerPlays(player1);
-            Card cardPlayed = game.lastCardPlayedOnTable();
-            textView1.setText(cardPlayed.cardName());
+            // TODO: 31/01/2018 check if this player is the active player
+            if(game.getActivePlayer() == player1){
+                game.playerPlays(player1);
+                Card cardPlayed = game.lastCardPlayedOnTable();
+                textView1.setText(cardPlayed.cardName());
+            }
         }
         });
 
@@ -67,9 +70,11 @@ public class PlayActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View player2Button) {
-            game.playerPlays(player2);
-            Card cardPlayed = game.lastCardPlayedOnTable();
-            textView2.setText(cardPlayed.cardName());
+            if(game.getActivePlayer() == player2) {
+                game.playerPlays(player2);
+                Card cardPlayed = game.lastCardPlayedOnTable();
+                textView2.setText(cardPlayed.cardName());
+            }
         }
         });
 
