@@ -30,4 +30,10 @@ public class CardTest {
         int value = card.getRank().getValue();
         assertEquals(11, value);
     }
+
+    @Test
+    public void canGetCardAsString(){
+        card = new Card(Suit.CLUBS, Rank.JACK);
+        assertEquals("JACK CLUBS", card.cardName());
+    }
 }

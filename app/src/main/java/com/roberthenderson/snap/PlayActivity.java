@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Play extends AppCompatActivity {
+public class PlayActivity extends AppCompatActivity {
 
     Button player1Button;
     Button player2Button;
@@ -41,7 +41,6 @@ public class Play extends AppCompatActivity {
         game.gameStart();
 
 
-
         String player1cards = String.valueOf(player1.getNumberOfCards());
         Log.d("Game Created", "player1 has " + player1cards + " cards");
 
@@ -50,19 +49,28 @@ public class Play extends AppCompatActivity {
 
         @Override
         public void onClick(View player1Button) {
-            Intent intent = new Intent(Play.this, Play.class);
-            startActivity(intent);
+            game.playerPlays(player1);
+            Card cardPlayed = game.lastCardPlayedOnTable();
+            textView.setText(cardPlayed.cardName());
+//            game.checksWhenRanksMatch();
+//            game.checkWinner();
+
             }
         });
 
 
     player2Button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View player2Button) {
-                Intent intent = new Intent(Play.this, Play.class);
-                startActivity(intent);
-            }
+        @Override
+        public void onClick(View player2Button) {
+            game.playerPlays(player2);
+            Card cardPlayed = game.lastCardPlayedOnTable();
+            textView.setText(cardPlayed.cardName());
+//            game.checksWhenRanksMatch();
+//            game.checkWinner();
+        }
+
         });
+
     }
 }

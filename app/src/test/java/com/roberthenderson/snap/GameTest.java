@@ -168,4 +168,12 @@ public class GameTest {
         System.out.println(riggedgame.getTable().size());
     }
 
+    @Test
+    public void checkLastCardPlayedOntoTable(){
+        riggedgame.gameStart();
+        riggedgame.playerPlays(player1);
+        riggedgame.playerPlays(player2);
+        assertEquals("TWO SPADES", riggedgame.lastCardPlayedOnTable().cardName());
+    }
+
 }

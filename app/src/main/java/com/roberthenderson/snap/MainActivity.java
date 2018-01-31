@@ -2,10 +2,7 @@ package com.roberthenderson.snap;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View rulesButton) {
-                Intent intent = new Intent(MainActivity.this, Rules.class);
+                Intent intent = new Intent(MainActivity.this, RulesActivity.class);
                 startActivity(intent); // startActivity allow you to move
                     }
                 });
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View playButton) {
-                Intent intent = new Intent(MainActivity.this, Play.class);
+                Intent intent = new Intent(MainActivity.this, PlayActivity.class);
                 startActivity(intent); // startActivity allow you to move
                     }
                 });

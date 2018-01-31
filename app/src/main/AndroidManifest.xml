@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Rules" />
-        <activity android:name=".Play"></activity>
+        <activity android:name=".RulesActivity" />
+        <activity android:name=".PlayActivity"></activity>
     </application>
 
 </manifest>

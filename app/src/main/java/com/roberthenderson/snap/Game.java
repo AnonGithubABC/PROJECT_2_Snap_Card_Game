@@ -43,9 +43,10 @@ public class Game {
     }
 
 
-    public void playerPlays(Player player) {
+    public Card playerPlays(Player player) {
         Card card = player.removeCard();
         if (card != null) tableAcceptsCard(card);
+        return card;
     }
 
 
@@ -81,6 +82,12 @@ public class Game {
             }
         }
         return winner;
+    }
+
+    public Card lastCardPlayedOnTable(){
+        int index = this.table.size() -1;
+        Card lastCard = this.table.get(index);
+        return lastCard;
     }
 }
 
