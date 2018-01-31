@@ -7,12 +7,11 @@
     tools:context="com.roberthenderson.snap.PlayActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/player1TextView"
         android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="108dp"
         android:layout_marginTop="8dp"
-        android:autoText="true"
         android:contextClickable="true"
         android:elegantTextHeight="true"
         android:textAlignment="center"
@@ -23,8 +22,25 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/border"
-        tools:text="card to be played area" />
+        app:layout_constraintTop_toBottomOf="@+id/player2SnapButton"
+        app:layout_constraintVertical_bias="0.86"
+        tools:text="p1 card to be played area" />
+
+    <TextView
+        android:id="@+id/player2TextView"
+        android:layout_width="145dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/player1TextView"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player2SnapButton"
+        app:layout_constraintVertical_bias="0.42000002"
+        tools:text="p2 card to be played area" />
 
     <Button
         android:id="@+id/player2Button"
@@ -59,10 +75,40 @@
         app:layout_constraintTop_toBottomOf="@+id/player2Button"
         app:layout_constraintVertical_bias="0.978" />
 
+    <Button
+        android:id="@+id/player1SnapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="SNAP!"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/border"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1TextView"
+        app:layout_constraintVertical_bias="0.32999998" />
+
+    <Button
+        android:id="@+id/player2SnapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="36dp"
+        android:rotation="180"
+        android:text="SNAP!"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/border"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/border"
+        app:layout_constraintVertical_bias="0.060000002" />
+
     <ImageView
         android:id="@+id/border"
-        android:layout_width="305dp"
-        android:layout_height="328dp"
+        android:layout_width="328dp"
+        android:layout_height="345dp"
         android:src="@drawable/playing_cards_borders"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.506"

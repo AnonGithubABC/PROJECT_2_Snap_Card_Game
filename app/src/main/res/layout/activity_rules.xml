@@ -20,7 +20,7 @@
         android:ems="10"
         android:freezesText="false"
         android:inputType="textMultiLine|textImeMultiLine"
-        android:text="RULES \n Snap! Is the classic card game where each player gets 26 card \n one card at a time till the time the pair matches for example two \n 'Aces' two 2's.  As soon as two cards match both players has the opportinity \n to click on their respective side to snap the cards and whoever is successful in \n tapping first gets the cards on the deck. \n  The game continues until one player finishes all of their cards and may also end \n in draw if both players finish their cards."
+        android:text="RULES \nSnap! Is the classic card game where each player gets 26 card one card at a time till the time the pair matches for example two 'Aces' two 2's.\n\nAs soon as two cards match both players has the opportunity to click on their respective side to snap the cards and whoever is successful in tapping first gets the cards on the deck.  The game continues until one player finishes all of their cards and may also end in draw if both players finish their cards."
         android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

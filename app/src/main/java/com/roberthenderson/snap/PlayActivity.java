@@ -1,6 +1,5 @@
 package com.roberthenderson.snap;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +13,10 @@ public class PlayActivity extends AppCompatActivity {
 
     Button player1Button;
     Button player2Button;
-    TextView textView;
+    TextView textView1;
+    TextView textView2;
+    Button player1SnapButton;
+    Button player2SnapButton;
     Player player1;
     Player player2;
     Deck deck;
@@ -29,7 +31,10 @@ public class PlayActivity extends AppCompatActivity {
 
         player1Button = findViewById(R.id.player1Button);
         player2Button = findViewById(R.id.player2Button);
-        textView = findViewById(R.id.textView);
+        textView1 = findViewById(R.id.player1TextView);
+        textView2 = findViewById(R.id.player2TextView);
+        player1SnapButton = findViewById(R.id.player1SnapButton);
+        player2SnapButton = findViewById(R.id.player2SnapButton);
         player1 = new Player();
         player2 = new Player();
         deck = new Deck();
@@ -51,9 +56,8 @@ public class PlayActivity extends AppCompatActivity {
         public void onClick(View player1Button) {
             game.playerPlays(player1);
             Card cardPlayed = game.lastCardPlayedOnTable();
-            textView.setText(cardPlayed.cardName());
-//            game.checksWhenRanksMatch();
-//            game.checkWinner();
+            textView1.setText(cardPlayed.cardName());
+
 
             }
         });
@@ -65,12 +69,38 @@ public class PlayActivity extends AppCompatActivity {
         public void onClick(View player2Button) {
             game.playerPlays(player2);
             Card cardPlayed = game.lastCardPlayedOnTable();
-            textView.setText(cardPlayed.cardName());
+            textView2.setText(cardPlayed.cardName());
 //            game.checksWhenRanksMatch();
 //            game.checkWinner();
         }
 
         });
 
+    player1SnapButton.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View player1SnapButton) {
+            game.callSnap(player1);
+            game.checksWhenRanksMatch();
+            game.checkWinner();
+
+        }
+    });
+
+    player2SnapButton.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View player1SnapButton) {
+            game.callSnap(player2);
+            game.checksWhenRanksMatch();
+            game.checkWinner();
+
+        }
+    });
+
     }
+
+
+
+
 }
