@@ -1,11 +1,13 @@
 package com.roberthenderson.snap;
 
+import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ViewAnimator;
 
 import java.util.ArrayList;
 
@@ -18,6 +20,7 @@ public class PlayActivity extends AppCompatActivity {
     TextView textViewWinner;
     Button player1SnapButton;
     Button player2SnapButton;
+//    TextView player1CardCount;
     Player player1;
     Player player2;
     Deck deck;
@@ -37,6 +40,8 @@ public class PlayActivity extends AppCompatActivity {
         textViewWinner = findViewById(R.id.playerWins);
         player1SnapButton = findViewById(R.id.player1SnapButton);
         player2SnapButton = findViewById(R.id.player2SnapButton);
+//        player1CardCount = findViewById(R.id.player1CardCount);
+//        player1CardCount.setText(String.valueOf(player1.getNumberOfCards()));
         player1 = new Player();
         player2 = new Player();
         deck = new Deck();
@@ -84,9 +89,9 @@ public class PlayActivity extends AppCompatActivity {
         public void onClick(View player1SnapButton) {
             game.callSnap(player1);
             game.checksWhenRanksMatch();
-            game.checkWinner();
+            if (game.checkWinner() != null){
             String winningPlayer = game.checkWinner().toString();
-            textViewWinner.setText(winningPlayer);
+            textViewWinner.setText(winningPlayer);}
 
         }
         });
@@ -105,6 +110,8 @@ public class PlayActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 
 
