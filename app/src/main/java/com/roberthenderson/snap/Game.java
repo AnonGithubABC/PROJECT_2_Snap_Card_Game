@@ -96,6 +96,9 @@ public class Game {
             if (player.getNumberOfCards() == cardsToBeWon){
                 winner = player;
             }
+            else if (player.getNumberOfCards() == 0 && checksWhenRanksMatch() == false) {
+                winner = players.get(0);
+            }
         }
         return winner;
     }

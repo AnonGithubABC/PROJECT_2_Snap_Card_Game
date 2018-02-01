@@ -72,6 +72,12 @@ public class PlayActivity extends AppCompatActivity {
                 Card cardPlayed = game.lastCardPlayedOnTable();
                 textView1.setText(cardPlayed.cardName());
                 textView3.setText("");
+                if (game.checkWinner() != null){
+                    String winningPlayer = game.checkWinner().toString();
+                    textViewWinner.setText(winningPlayer);
+                    textView1.setText("");
+                    textView2.setText("");;
+                }
             }
         }
         });
@@ -87,6 +93,12 @@ public class PlayActivity extends AppCompatActivity {
                 Card cardPlayed = game.lastCardPlayedOnTable();
                 textView2.setText(cardPlayed.cardName());
                 textView3.setText("");
+                if (game.checkWinner() != null){
+                    String winningPlayer = game.checkWinner().toString();
+                    textViewWinner.setText(winningPlayer);
+                    textView1.setText("");
+                    textView2.setText("");;
+                }
             }
         }
         });
@@ -98,15 +110,13 @@ public class PlayActivity extends AppCompatActivity {
             game.callSnap(player1);
             player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");
             game.checksWhenRanksMatch();
-            if (game.checkWinner() != null){
-            String winningPlayer = game.checkWinner().toString();
-            textViewWinner.setText(winningPlayer);}
+
             textView1.setText("");
             textView2.setText("");
             textView3.setText("PLAYER 1 WINS ROUND, PLAY NEXT CARD");
 
         }
-        });
+    });
 
     player2SnapButton.setOnClickListener(new View.OnClickListener() {
 
@@ -115,16 +125,14 @@ public class PlayActivity extends AppCompatActivity {
             game.callSnap(player2);
             player2CardCount.setText(String.valueOf(player2.getNumberOfCards()) + " cards left!");
             game.checksWhenRanksMatch();
-            if (game.checkWinner() != null){
-            String winningPlayer = game.checkWinner().toString();
-            textViewWinner.setText(winningPlayer);}
+
             game.getTable().clear();
             textView1.setText("");
             textView2.setText("");
             textView3.setText("PLAYER 2 WINS ROUND, PLAY NEXT CARD");
 
         }
-        });
+    });
 
     }
 
