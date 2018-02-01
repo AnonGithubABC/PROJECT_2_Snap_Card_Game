@@ -59,7 +59,6 @@ public class Game {
         Card card = player.removeCard();
         if (card != null) tableAcceptsCard(card);
         swapActivePlayer();
-        // TODO: 31/01/2018 switch active players here
         return card;
     }
 
@@ -75,11 +74,13 @@ public class Game {
         return false;
     }
 
-    public void callSnap(Player player) {
+    public String callSnap(Player player) {
         if (checksWhenRanksMatch()) {
             player.winCards(this.table);
             this.table.clear();
+            return "Congrats, you won the cards...keep playing!";
         }
+        return "invalid snap";
     }
 
     public String gameIsADraw(Player player1, Player player2) {

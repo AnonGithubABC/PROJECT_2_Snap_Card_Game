@@ -73,10 +73,10 @@ public class PlayActivity extends AppCompatActivity {
                 textView1.setText(cardPlayed.cardName());
                 textView3.setText("");
                 if (game.checkWinner() != null){
-                    String winningPlayer = game.checkWinner().toString();
-                    textViewWinner.setText(winningPlayer);
+//                    String winningPlayer = game.checkWinner().toString();
+                    textViewWinner.setText("PLAYER 2 WINS");
                     textView1.setText("");
-                    textView2.setText("");;
+                    textView2.setText("");
                 }
             }
         }
@@ -94,10 +94,10 @@ public class PlayActivity extends AppCompatActivity {
                 textView2.setText(cardPlayed.cardName());
                 textView3.setText("");
                 if (game.checkWinner() != null){
-                    String winningPlayer = game.checkWinner().toString();
-                    textViewWinner.setText(winningPlayer);
+//                    String winningPlayer = game.checkWinner().toString();
+                    textViewWinner.setText("PLAYER 1 WINS");
                     textView1.setText("");
-                    textView2.setText("");;
+                    textView2.setText("");
                 }
             }
         }
@@ -107,13 +107,12 @@ public class PlayActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View player1SnapButton) {
-            game.callSnap(player1);
+            String result = game.callSnap(player1);
             player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");
-            game.checksWhenRanksMatch();
-
             textView1.setText("");
             textView2.setText("");
-            textView3.setText("PLAYER 1 WINS ROUND, PLAY NEXT CARD");
+            textView3.setText(result);
+
 
         }
     });
@@ -122,14 +121,11 @@ public class PlayActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View player2SnapButton) {
-            game.callSnap(player2);
+            String result = game.callSnap(player2);
             player2CardCount.setText(String.valueOf(player2.getNumberOfCards()) + " cards left!");
-            game.checksWhenRanksMatch();
-
-            game.getTable().clear();
             textView1.setText("");
             textView2.setText("");
-            textView3.setText("PLAYER 2 WINS ROUND, PLAY NEXT CARD");
+            textView3.setText(result);
 
         }
     });

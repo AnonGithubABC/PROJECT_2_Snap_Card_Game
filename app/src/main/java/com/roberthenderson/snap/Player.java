@@ -4,15 +4,17 @@ package com.roberthenderson.snap;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.jar.Attributes;
 
 public class Player {
 
     private ArrayList<Card> hand;
 
+
     public Player() {
         hand = new ArrayList<>();
-    }
 
+    }
 
     public int getNumberOfCards() {
         return hand.size();
