@@ -82,6 +82,12 @@ public class PlayActivity extends AppCompatActivity {
                 player1Card.setVisibility(View.VISIBLE);
                 player2Card.setVisibility(View.VISIBLE);
 
+                if (game.gameIsADraw(player1, player2) != false){
+                    textViewWinner.setText("GAME IS A DRAW");
+                    player1Card.setVisibility(View.INVISIBLE);
+                    player2Card.setVisibility(View.INVISIBLE);
+                }
+
                 if (game.checkWinner() != null){
 //                    String winningPlayer = game.checkWinner().toString();
                     textViewWinner.setText("PLAYER 2 WINS");
@@ -110,6 +116,12 @@ public class PlayActivity extends AppCompatActivity {
 
                 player1Card.setVisibility(View.VISIBLE);
                 player2Card.setVisibility(View.VISIBLE);
+
+                if (game.gameIsADraw(player1, player2) != null){
+                    textViewWinner.setText("GAME IS A DRAW");
+                    player1Card.setVisibility(View.INVISIBLE);
+                    player2Card.setVisibility(View.INVISIBLE);
+                }
 
                 if (game.checkWinner() != null){
 //                    String winningPlayer = game.checkWinner().toString();

@@ -82,18 +82,18 @@ public class Game {
         return "invalid snap";
     }
 
-    public String gameIsADraw(Player player1, Player player2) {
+    public Boolean gameIsADraw(Player player1, Player player2) {
         if (player1.getNumberOfCards() < 1 && player2.getNumberOfCards() < 1) {
-            return "Game is a draw";
+            return true;
         }
-        return null;
+        return false;
     }
 
 
     public Player checkWinner(){
         Player winner = null;
         for (Player player : players){
-            if (player.getNumberOfCards() == cardsToBeWon){
+            if (player.getNumberOfCards() == cardsToBeWon) {
                 winner = player;
             }
             else if (player.getNumberOfCards() == 0 && checksWhenRanksMatch() == false) {
