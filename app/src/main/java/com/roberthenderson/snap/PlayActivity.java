@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
 
@@ -23,6 +24,7 @@ public class PlayActivity extends AppCompatActivity {
     Button player2SnapButton;
     TextView player1CardCount;
     TextView player2CardCount;
+    ImageView player1Card;
     Player player1;
     Player player2;
     Deck deck;
@@ -45,6 +47,7 @@ public class PlayActivity extends AppCompatActivity {
         player2SnapButton = findViewById(R.id.player2SnapButton);
         player1CardCount = findViewById(R.id.player1CardCount);
         player2CardCount = findViewById(R.id.player2CardCount);
+        player1Card = findViewById(R.id.player1Card);
         player1 = new Player();
         player2 = new Player();
         deck = new Deck();
@@ -56,6 +59,7 @@ public class PlayActivity extends AppCompatActivity {
         game.gameStart();
         player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");
         player2CardCount.setText(String.valueOf(player2.getNumberOfCards()) + " cards left!");
+        player1Card.setImageDrawable(player1.);
 
 
         String player1cards = String.valueOf(player1.getNumberOfCards());

@@ -27,7 +27,6 @@ public class Game {
         this.cardsToBeWon = deck.getSize();
     }
 
-    // TODO: 31/01/2018 Set up game to have an active player - switch players in array to change them
 
     public Player getActivePlayer(){
         return this.players.get(0);

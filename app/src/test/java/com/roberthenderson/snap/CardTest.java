@@ -33,7 +33,11 @@ public class CardTest {
 
     @Test
     public void canGetCardAsString(){
-        card = new Card(Suit.CLUBS, Rank.JACK);
-        assertEquals("JACK CLUBS", card.cardName());
+        assertEquals("KING HEARTS", card.cardName());
+    }
+
+    @Test
+    public void canGetCardAsFileName() {
+        assertEquals("king_of_hearts", card.cardNameAsFileName());
     }
 }
