@@ -38,6 +38,6 @@ public class CardTest {
 
     @Test
     public void canGetCardAsFileName() {
-        assertEquals("king_of_hearts", card.cardNameAsFileName());
+        assertEquals("king_of_hearts", card.setCardNameAsFileName());
     }
 }

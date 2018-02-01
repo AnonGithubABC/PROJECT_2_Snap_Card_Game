@@ -1,6 +1,7 @@
 package com.roberthenderson.snap;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,8 +17,6 @@ public class PlayActivity extends AppCompatActivity {
 
     Button player1Button;
     Button player2Button;
-    TextView textView1;
-    TextView textView2;
     TextView textView3;
     TextView textViewWinner;
     Button player1SnapButton;
@@ -25,6 +24,7 @@ public class PlayActivity extends AppCompatActivity {
     TextView player1CardCount;
     TextView player2CardCount;
     ImageView player1Card;
+    ImageView player2Card;
     Player player1;
     Player player2;
     Deck deck;
@@ -39,8 +39,6 @@ public class PlayActivity extends AppCompatActivity {
 
         player1Button = findViewById(R.id.player1Button);
         player2Button = findViewById(R.id.player2Button);
-        textView1 = findViewById(R.id.player1TextView);
-        textView2 = findViewById(R.id.player2TextView);
         textView3 = findViewById(R.id.playNextRound);
         textViewWinner = findViewById(R.id.playerWins);
         player1SnapButton = findViewById(R.id.player1SnapButton);
@@ -48,6 +46,7 @@ public class PlayActivity extends AppCompatActivity {
         player1CardCount = findViewById(R.id.player1CardCount);
         player2CardCount = findViewById(R.id.player2CardCount);
         player1Card = findViewById(R.id.player1Card);
+        player2Card = findViewById(R.id.player2Card);
         player1 = new Player();
         player2 = new Player();
         deck = new Deck();
@@ -59,7 +58,7 @@ public class PlayActivity extends AppCompatActivity {
         game.gameStart();
         player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");
         player2CardCount.setText(String.valueOf(player2.getNumberOfCards()) + " cards left!");
-        player1Card.setImageDrawable(player1.);
+
 
 
         String player1cards = String.valueOf(player1.getNumberOfCards());
@@ -74,13 +73,21 @@ public class PlayActivity extends AppCompatActivity {
                 game.playerPlays(player1);
                 player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");
                 Card cardPlayed = game.lastCardPlayedOnTable();
-                textView1.setText(cardPlayed.cardName());
                 textView3.setText("");
+
+                Context context = player1Card.getContext();
+                int id = context.getResources().getIdentifier(cardPlayed.setCardNameAsFileName(), "drawable", context.getPackageName());
+                player1Card.setImageResource(id);
+
+                player1Card.setVisibility(View.VISIBLE);
+                player2Card.setVisibility(View.VISIBLE);
+
                 if (game.checkWinner() != null){
 //                    String winningPlayer = game.checkWinner().toString();
                     textViewWinner.setText("PLAYER 2 WINS");
-                    textView1.setText("");
-                    textView2.setText("");
+                    player1Card.setVisibility(View.INVISIBLE);
+                    player2Card.setVisibility(View.INVISIBLE);
+
                 }
             }
         }
@@ -95,13 +102,20 @@ public class PlayActivity extends AppCompatActivity {
                 game.playerPlays(player2);
                 player2CardCount.setText(String.valueOf(player2.getNumberOfCards()) + " cards left!");
                 Card cardPlayed = game.lastCardPlayedOnTable();
-                textView2.setText(cardPlayed.cardName());
                 textView3.setText("");
+
+                Context context = player2Card.getContext();
+                int id = context.getResources().getIdentifier(cardPlayed.setCardNameAsFileName(), "drawable", context.getPackageName());
+                player2Card.setImageResource(id);
+
+                player1Card.setVisibility(View.VISIBLE);
+                player2Card.setVisibility(View.VISIBLE);
+
                 if (game.checkWinner() != null){
 //                    String winningPlayer = game.checkWinner().toString();
                     textViewWinner.setText("PLAYER 1 WINS");
-                    textView1.setText("");
-                    textView2.setText("");
+                    player1Card.setVisibility(View.INVISIBLE);
+                    player2Card.setVisibility(View.INVISIBLE);
                 }
             }
         }
@@ -113,8 +127,11 @@ public class PlayActivity extends AppCompatActivity {
         public void onClick(View player1SnapButton) {
             String result = game.callSnap(player1);
             player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");
-            textView1.setText("");
-            textView2.setText("");
+//            textView1.setText("");
+//            textView2.setText("");
+
+            player1Card.setVisibility(View.INVISIBLE);
+            player2Card.setVisibility(View.INVISIBLE);
             textView3.setText(result);
 
 
@@ -127,8 +144,11 @@ public class PlayActivity extends AppCompatActivity {
         public void onClick(View player2SnapButton) {
             String result = game.callSnap(player2);
             player2CardCount.setText(String.valueOf(player2.getNumberOfCards()) + " cards left!");
-            textView1.setText("");
-            textView2.setText("");
+//            textView1.setText("");
+//            textView2.setText("");
+
+            player1Card.setVisibility(View.INVISIBLE);
+            player2Card.setVisibility(View.INVISIBLE);
             textView3.setText(result);
 
         }
