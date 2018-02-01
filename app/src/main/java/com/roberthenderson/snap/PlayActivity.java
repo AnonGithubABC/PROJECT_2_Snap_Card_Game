@@ -66,7 +66,6 @@ public class PlayActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View player1Button) {
-            // TODO: 31/01/2018 check if this player is the active player
             if(game.getActivePlayer() == player1){
                 game.playerPlays(player1);
                 player1CardCount.setText(String.valueOf(player1.getNumberOfCards()) + " cards left!");

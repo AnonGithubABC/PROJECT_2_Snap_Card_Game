@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/playNextRound"
-        android:layout_width="217dp"
-        android:layout_height="65dp"
+        android:layout_width="244dp"
+        android:layout_height="115dp"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
